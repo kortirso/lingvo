@@ -27,6 +27,8 @@ defmodule Lingvo.MixProject do
 
   defp deps do
     [
+      {:httpoison, "~> 1.4"},
+      {:poison, "~> 3.1"},
       {:ex_doc, "~> 0.19", only: :dev}
     ]
   end
