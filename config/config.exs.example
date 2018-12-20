@@ -1,0 +1,3 @@
+# use Mix.Config
+
+# config :lingvo, api_key: "LINGVO_API_KEY"
