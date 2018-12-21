@@ -15,7 +15,7 @@ defmodule Lingvo.Client do
       {:ok, %HTTPoison.Response{}}
 
   """
-  @spec get(path, String.t()) :: %{}
+  @spec get(path, String.t()) :: {}
 
   def get(path, access_token) do
     case HTTPoison.get(base_uri() <> path, bearer_headers(access_token), options()) do
@@ -33,7 +33,7 @@ defmodule Lingvo.Client do
   ## Examples
 
       iex> Lingvo.Client.post("/v1.1/authenticate")
-      {:ok, %HTTPoison.Response{}}
+      {:ok, ""}
 
   """
   @spec post(path) :: {:ok, api_key}

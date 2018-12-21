@@ -15,6 +15,33 @@ def deps do
 end
 ```
 
+## Using
+
+### Get access token
+
+An API key can be set in your application's config.
+```elixir
+  config :lingvo, api_key: "LINGVO_API_KEY"
+```
+
+Then make request for getting access_token
+```elixir
+  Lingvo.authenticate
+```
+
+### Translate word or phrase
+
+An API key can be set in your application's config.
+
+```elixir
+  Lingvo.translate([text: "Hola", from: "es", to: "ru"], access_token)
+```
+  text - Word or phrase to translate, required
+  from - Source language, ISO 639-1 format, required
+  to - Target language, ISO 639-1 format, required
+  case_sensitivity - If you need case-sensitive search then just add any value, optional, default is false
+  access_token - Access token from authentication, required
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/kortirso/lingvo.
