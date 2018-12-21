@@ -10,7 +10,7 @@ by adding `lingvo` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:lingvo, "~> 0.0.1"}
+    {:lingvo, "~> 0.9.0"}
   ]
 end
 ```

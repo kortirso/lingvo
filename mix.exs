@@ -8,7 +8,7 @@ defmodule Lingvo.MixProject do
   def project do
     [
       app: :lingvo,
-      version: "0.0.1",
+      version: "0.9.0",
       elixir: "~> 1.7",
       name: "Lingvo",
       description: @description,
