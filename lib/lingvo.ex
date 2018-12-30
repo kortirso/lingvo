@@ -86,7 +86,7 @@ defmodule Lingvo do
   end
 
   defp url_for_translate(text, from, to, case_sensitivity) do
-    url = "/v1/Translation?text=#{text}&srcLang=#{get_code(from)}&dstLang=#{get_code(to)}"
+    url = "/v1/Translation?text=#{URI.encode_www_form(text)}&srcLang=#{get_code(from)}&dstLang=#{get_code(to)}"
     if !is_nil(case_sensitivity), do: url <> "&isCaseSensitive=true", else: url
   end
 

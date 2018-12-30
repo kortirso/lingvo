@@ -11,7 +11,7 @@ defmodule Lingvo.Client do
 
   ## Examples
 
-      iex> Lingvo.Client.get("/v1/Transalation", access_token)
+      iex> Lingvo.Client.get("/v1/Translation", access_token)
       {:ok, %HTTPoison.Response{}}
 
   """
@@ -20,10 +20,8 @@ defmodule Lingvo.Client do
   def get(path, access_token) do
     case HTTPoison.get(base_uri() <> path, bearer_headers(access_token), options()) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} -> {:ok, body}
-      {:ok, %HTTPoison.Response{status_code: 400, body: body}} -> {:error, body}
-      {:ok, %HTTPoison.Response{status_code: 404}} -> {:error, "Page not found"}
+      {:ok, %HTTPoison.Response{body: body}} -> {:error, body}
       {:error, %HTTPoison.Error{reason: reason}} -> {:error, reason}
-      _ -> {:error, "Unknown error"}
     end
   end
 
@@ -41,10 +39,8 @@ defmodule Lingvo.Client do
   def post(path) do
     case HTTPoison.post(base_uri() <> path, "", basic_headers(), options()) do
       {:ok, %HTTPoison.Response{status_code: 200, body: body}} -> {:ok, body}
-      {:ok, %HTTPoison.Response{status_code: 400, body: body}} -> {:error, body}
-      {:ok, %HTTPoison.Response{status_code: 404}} -> {:error, "Page not found"}
+      {:ok, %HTTPoison.Response{body: body}} -> {:error, body}
       {:error, %HTTPoison.Error{reason: reason}} -> {:error, reason}
-      _ -> {:error, "Unknown error"}
     end
   end
 
